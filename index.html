@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riya Verma | Portfolio</title>
-    <link rel="stylesheet" href="index.css">
     <style>
         body {
             min-height: 100vh;
@@ -21,7 +20,6 @@
             0% { background-position: 0 0; }
             100% { background-position: 100% 100%; }
         }
-        /* Animated floating profile pic */
         .profile-pic-topright {
             position: absolute;
             top: 40px;
@@ -243,7 +241,6 @@
             margin:16px 0;
             animation: fadeIn 1.2s;
         }
-        /* Project cards animation */
         .project-card {
             flex:1; 
             min-width:260px; 
@@ -281,12 +278,6 @@
                 height: 160px;
             }
         }
-        nav {
-            margin-bottom: 0;
-        }
-        #about, #skills, #projects {
-            display: none;
-        }
         footer {
             opacity: 0.7;
             transition: opacity 0.3s;
@@ -304,7 +295,6 @@
         footer:hover {
             opacity: 1;
         }
-        /* Contact section alignment */
         #contact {
             max-width:380px;
             margin:48px auto 0 auto;
@@ -380,7 +370,6 @@
             color:#A020F0;
             box-shadow:0 4px 16px #a020f088;
         }
-        /* Subtle animated background shapes */
         .animated-bg {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -410,19 +399,58 @@
             0% { transform: translateY(0) scale(1);}
             100% { transform: translateY(-30px) scale(1.08);}
         }
+        @keyframes popupIn {
+            from { opacity: 0; transform: translate(-50%, -60%) scale(0.7);}
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1);}
+        }
+        #popup-overlay {
+            animation: fadeIn 0.5s;
+        }
+        #popup-content {
+            animation: popupIn 0.5s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+        }
+        #popup-content::-webkit-scrollbar {
+            width: 8px;
+            background: #18122B;
+        }
+        #popup-content::-webkit-scrollbar-thumb {
+            background: #A020F0;
+            border-radius: 8px;
+        }
+        #popup-content h2 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #A020F0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        #popup-content ul, #popup-content p, #popup-content div {
+            color: #fff;
+        }
+        #popup-content a {
+            color: #A020F0;
+            text-decoration: underline;
+        }
+        #popup-content a:hover {
+            color: #d6b4fc;
+        }
+        #popup-content button[onclick] {
+            opacity: 0.7;
+        }
+        #popup-content button[onclick]:hover {
+            opacity: 1;
+            color: #A020F0;
+        }
     </style>
 </head>
 <body>
-    <!-- Animated background shapes -->
     <div class="animated-bg">
         <span class="circle1"></span>
         <span class="circle2"></span>
         <span class="circle3"></span>
     </div>
-    <!-- Profile picture absolutely positioned at top right -->
     <img src="image 2.png" alt="Profile Picture" class="profile-pic-topright">
 
-    <!-- Popup Overlay and Popup Content -->
     <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(24,18,43,0.85); z-index:1000; animation: fadeIn 0.5s;">
         <div id="popup-content" style="
             position: absolute;
@@ -504,7 +532,6 @@
                         </ul>
                     </div>
                 </div>
-                <!-- Projects Section -->
                 <div class="header-section" style="width:100%;margin-top:32px;cursor:pointer;" onclick="showPopup('projects')">
                     <h3>Projects</h3>
                     <div style="display: flex; flex-wrap: wrap; gap: 24px;">
@@ -517,15 +544,15 @@
                             <a href="https://github.com/riyaverma/smart-attendance" target="_blank" class="project-link">View on GitHub</a>
                         </div>
                         <div class="project-card">
-                            <div class="project-title">Personal Portfolio Website</div>
+                            <div class="project-title">Mood-Based Music Recommendation System</div>
                             <div class="project-desc">
-                                Designed and developed this portfolio website to showcase my skills and projects as a beginner in web development. This project helped me understand HTML structure, CSS styling, and basic responsive design.<br>
-                                <span class="project-tech"><b>Technologies:</b> HTML, CSS, JavaScript</span>
+                                Developed an intelligent music recommendation system that detects user emotions through facial recognition and suggests personalized music playlists. This project helped me learn machine learning basics, TensorFlow.js for emotion detection, and database management with MySQL.<br>
+                                <span class="project-tech"><b>Technologies:</b> HTML, CSS, JavaScript, TensorFlow.js, MySQL</span>
                             </div>
+                            <a href="https://github.com/riyaverma/mood-music-system" target="_blank" class="project-link">View on GitHub</a>
                         </div>
                     </div>
                 </div>
-                <!-- Experience Section -->
                 <div class="header-section" style="width:100%;margin-top:32px;cursor:pointer;" onclick="showPopup('experience')">
                     <h3>Experience</h3>
                     <div>
@@ -566,7 +593,6 @@
         <p>&copy; 2025 Riya Verma</p>
     </footer>
     <script>
-        // Popup content for each section
         const popupContents = {
             about: `
                 <h2 style="color:#A020F0;">About Me</h2>
@@ -611,100 +637,14 @@
                     </p>
                 </div>
                 <div>
-                    <b>Personal Portfolio Website</b>
+                    <b>Mood-Based Music Recommendation System</b>
                     <p style="margin:6px 0 0 0;">
-                        Designed and developed this portfolio website to showcase my skills and projects as a beginner in web development. This project helped me understand HTML structure, CSS styling, and basic responsive design.<br>
-                        <span style="color:#A020F0;"><b>Technologies:</b> HTML, CSS, JavaScript</span>
+                        Developed an intelligent music recommendation system that detects user emotions through facial recognition and suggests personalized music playlists. This project helped me learn machine learning basics, TensorFlow.js for emotion detection, and database management with MySQL.<br>
+                        <span style="color:#A020F0;"><b>Technologies:</b> HTML, CSS, JavaScript, TensorFlow.js, MySQL</span><br>
+                        <a href="https://rv2161.github.io/moodsys/" target="_blank" style="color:#A020F0;text-decoration:underline;">View on GitHub</a>
                     </p>
                 </div>
             `,
             experience: `
                 <h2 style="color:#A020F0;">Experience</h2>
-                <div style="margin-bottom:18px;">
-                    <b>Web Development Intern, TechSoft</b>
-                    <p style="margin:6px 0 0 0;">
-                        As a beginner intern, I contributed to building simple landing pages and dashboards for client projects. I learned to collaborate with designers, use Git for version control, and improve website performance.<br>
-                        <span style="color:#A020F0;"><b>Technologies:</b> HTML, CSS, JavaScript, Bootstrap</span>
-                    </p>
-                </div>
-                <div>
-                    <b>Hackathon Participant</b>
-                    <p style="margin:6px 0 0 0;">
-                        Participated in my first university hackathon, where I worked with a team to build a basic real-time disaster alert web app. I focused on learning React basics and how to work in a team.<br>
-                        <span style="color:#A020F0;"><b>Technologies:</b> React, Node.js, Firebase</span>
-                    </p>
-                </div>
-            `
-        };
-
-        function showPopup(section) {
-            document.getElementById('popup-inner-content').innerHTML = popupContents[section] || '';
-            document.getElementById('popup-overlay').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('popup-content').style.transform = 'translate(-50%, -50%) scale(1)';
-            }, 10);
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closePopup() {
-            document.getElementById('popup-content').style.transform = 'translate(-50%, -50%) scale(0.9)';
-            setTimeout(() => {
-                document.getElementById('popup-overlay').style.display = 'none';
-                document.body.style.overflow = '';
-            }, 200);
-        }
-
-        // Optional: Close popup on overlay click or ESC key
-        document.getElementById('popup-overlay').addEventListener('click', function(e) {
-            if (e.target === this) closePopup();
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === "Escape") closePopup();
-        });
-    </script>
-    <style>
-        @keyframes popupIn {
-            from { opacity: 0; transform: translate(-50%, -60%) scale(0.7);}
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1);}
-        }
-        #popup-overlay {
-            animation: fadeIn 0.5s;
-        }
-        #popup-content {
-            animation: popupIn 0.5s cubic-bezier(.68,-0.55,.27,1.55) forwards;
-        }
-        #popup-content::-webkit-scrollbar {
-            width: 8px;
-            background: #18122B;
-        }
-        #popup-content::-webkit-scrollbar-thumb {
-            background: #A020F0;
-            border-radius: 8px;
-        }
-        #popup-content h2 {
-            margin-top: 0;
-            font-size: 2em;
-            color: #A020F0;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-        #popup-content ul, #popup-content p, #popup-content div {
-            color: #fff;
-        }
-        #popup-content a {
-            color: #A020F0;
-            text-decoration: underline;
-        }
-        #popup-content a:hover {
-            color: #d6b4fc;
-        }
-        #popup-content button[onclick] {
-            opacity: 0.7;
-        }
-        #popup-content button[onclick]:hover {
-            opacity: 1;
-            color: #A020F0;
-        }
-    </style>
-</body>
-</html>
+                <div style="margin-
