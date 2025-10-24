@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riya Verma | Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(120deg, #18122B 60%, #A020F0 200%);
+            animation: bgmove 10s ease-in-out infinite alternate;
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #d6b4fc;
+            letter-spacing: 0.02em;
+            overflow-x: hidden;
+        }
+        @keyframes bgmove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+        /* Animated floating profile pic */
+        .profile-pic-topright {
+            position: absolute;
+            top: 40px;
+            right: 60px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 10px solid #A020F0;
+            box-shadow: 0 8px 32px #a020f088, 0 2px 8px #a020f044;
+            animation: floatPic 3s ease-in-out infinite alternate, fadeIn 1.5s;
+            z-index: 10;
+            background: #18122B;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .profile-pic-topright:hover {
+            box-shadow: 0 16px 48px #a020f0cc, 0 4px 16px #a020f088;
+            transform: scale(1.04) rotate(-2deg);
+            animation-play-state: paused;
+        }
+        @keyframes floatPic {
+            0% { transform: translateY(0);}
+            100% { transform: translateY(-18px);}
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .header-main {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 1100px;
+            margin: 60px auto 32px auto;
+            padding: 0 20px;
+            text-align: left;
+            background: rgba(24,18,43,0.98);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px #a020f022, 0 4px 16px #a020f011;
+            animation: fadeInUp 1.2s 0.3s backwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .header-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-top: 30px;
+        }
+        .full-name {
+            font-size: 3.2em;
+            font-weight: 900;
+            color: #A020F0;
+            margin-bottom: 0.15em;
+            letter-spacing: 2px;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid #A020F0;
+            width: 0;
+            animation: typing 2.2s steps(20, end) forwards, blink-caret .75s step-end infinite;
+            text-align: left;
+            text-shadow: 0 2px 8px #a020f033;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 12em }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #A020F0; }
+        }
+        .about-me {
+            font-size: 1.18em;
+            color: #fff;
+            margin-bottom: 1.1em;
+            font-weight: 500;
+            max-width: 700px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s 1.2s forwards;
+            text-align: left;
+            line-height: 1.7;
+        }
+        .contact-info {
+            margin-bottom: 1.2em;
+            color: #A020F0;
+            font-size: 1.08em;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s 1.5s forwards;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .header-sections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            width: 100%;
+            margin-top: 1.5em;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s 1.8s forwards;
+            justify-content: flex-start;
+        }
+        .header-section {
+            min-width: 220px;
+            flex: 1;
+            background: rgba(24,18,43,0.92);
+            border-radius: 10px;
+            padding: 18px 18px 10px 18px;
+            box-shadow: 0 2px 10px #a020f022;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1.2s 2s forwards;
+        }
+        .header-section:hover {
+            transform: translateY(-8px) scale(1.03) rotate(-1deg);
+            box-shadow: 0 8px 24px #a020f044;
+        }
+        .header-section h3 {
+            color: #A020F0;
+            margin-bottom: 0.4em;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            text-align: left;
+            font-weight: 700;
+            animation: fadeIn 1.2s 2.2s backwards;
+        }
+        .header-section ul, .header-section ol {
+            margin: 0 0 0 1em;
+            color: #fff;
+            font-size: 1em;
+            text-align: left;
+        }
+        .header-section li {
+            margin-bottom: 0.5em;
+        }
+        .header-section .skill-bar {
+            background: #2d1846;
+            border-radius: 8px;
+            margin: 6px 0 14px 0;
+            height: 18px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header-section .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, #A020F0 70%, #d6b4fc 100%);
+            border-radius: 8px 0 0 8px;
+            text-align: right;
+            color: #18122B;
+            font-weight: bold;
+            padding-right: 10px;
+            font-size: 0.95em;
+            line-height: 18px;
+            animation: growBar 1.2s cubic-bezier(.68,-0.55,.27,1.55) backwards;
+        }
+        @keyframes growBar {
+            from { width: 0; }
+        }
+        .project-title {
+            color: #A020F0;
+            font-weight: bold;
+            font-size: 1.13em;
+            letter-spacing: 0.5px;
+            text-align: left;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 8px #a020f033;
+            animation: fadeInLeft 1s;
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        .project-desc {
+            color: #fff;
+            margin-bottom: 0.5em;
+            font-size: 1.07em;
+            text-align: left;
+            line-height: 1.6;
+            animation: fadeInRight 1.2s;
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        .project-tech {
+            color: #A020F0;
+            font-size: 1em;
+            margin-bottom: 0.3em;
+            text-align: left;
+            font-weight: 500;
+        }
+        .project-link {
+            color: #A020F0;
+            text-decoration: underline;
+            font-size: 1em;
+            transition: color 0.2s;
+            text-align: left;
+            font-weight: 600;
+            animation: fadeIn 1.2s;
+        }
+        .project-link:hover {
+            color: #d6b4fc;
+            text-shadow: 0 0 8px #a020f0;
+        }
+        hr {
+            border:0;
+            border-top:1px solid #A020F0;
+            margin:16px 0;
+            animation: fadeIn 1.2s;
+        }
+        /* Project cards animation */
+        .project-card {
+            flex:1; 
+            min-width:260px; 
+            background:rgba(160,32,240,0.08); 
+            border-radius:12px; 
+            padding:18px 16px; 
+            margin-bottom:12px; 
+            box-shadow:0 2px 8px #a020f022;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1.2s 2.2s forwards;
+        }
+        .project-card:hover {
+            transform: scale(1.04) translateY(-8px) rotate(-1deg);
+            box-shadow: 0 8px 32px #a020f044;
+        }
+        @media (max-width: 1200px) {
+            .profile-pic-topright {
+                width: 220px;
+                height: 220px;
+                top: 20px;
+                right: 20px;
+            }
+        }
+        @media (max-width: 900px) {
+            .header-main {
+                margin-top: 180px;
+            }
+            .profile-pic-topright {
+                position: static;
+                display: block;
+                margin: 0 auto 24px auto;
+                width: 160px;
+                height: 160px;
+            }
+        }
+        nav {
+            margin-bottom: 0;
+        }
+        #about, #skills, #projects {
+            display: none;
+        }
+        footer {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            background: #A020F0;
+            color: #18122B;
+            font-size: 1.08em;
+            margin-top: 40px;
+            letter-spacing: 1px;
+            border-radius: 0 0 18px 18px;
+            font-weight: 600;
+            text-align: center;
+            padding: 18px 0;
+            animation: fadeInUp 1.2s 2.5s backwards;
+        }
+        footer:hover {
+            opacity: 1;
+        }
+        /* Contact section alignment */
+        #contact {
+            max-width:380px;
+            margin:48px auto 0 auto;
+            background:rgba(24,18,43,0.98);
+            border-radius:18px;
+            box-shadow:0 4px 24px #a020f033, 0 2px 8px #a020f022;
+            padding:28px 22px 22px 22px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            border:2px solid #A020F0;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1.2s 2.7s forwards;
+        }
+        #contact h2 {
+            color:#A020F0;
+            margin-bottom:14px;
+            font-size:1.5em;
+            font-weight:800;
+            letter-spacing:1px;
+            text-align:center;
+            text-shadow:0 2px 8px #a020f033;
+            animation: fadeIn 1.2s 2.8s backwards;
+        }
+        #contact form {
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            width:100%;
+        }
+        #contact label {
+            color:#A020F0;
+            font-weight:600;
+            font-size:1em;
+            animation: fadeInLeft 1s;
+        }
+        #contact input, #contact textarea {
+            padding:8px 12px;
+            border-radius:7px;
+            border:1.5px solid #A020F0;
+            font-size:1em;
+            background:#18122B;
+            color:#d6b4fc;
+            transition:border 0.2s, box-shadow 0.2s;
+            animation: fadeInRight 1.2s;
+        }
+        #contact input:focus, #contact textarea:focus {
+            border:2px solid #d6b4fc;
+            box-shadow:0 0 8px #a020f055;
+        }
+        #contact textarea {
+            resize:vertical;
+        }
+        #contact button[type="submit"] {
+            background:linear-gradient(90deg,#A020F0 80%,#d6b4fc 100%);
+            color:#18122B;
+            font-weight:700;
+            padding:10px 0;
+            border:none;
+            border-radius:7px;
+            font-size:1.08em;
+            cursor:pointer;
+            margin-top:6px;
+            box-shadow:0 2px 8px #a020f033;
+            letter-spacing:0.5px;
+            transition:background 0.2s, color 0.2s, box-shadow 0.2s;
+            animation: fadeInUp 1.2s 3s backwards;
+        }
+        #contact button[type="submit"]:hover {
+            background:linear-gradient(90deg,#d6b4fc 80%,#A020F0 100%);
+            color:#A020F0;
+            box-shadow:0 4px 16px #a020f088;
+        }
+        /* Subtle animated background shapes */
+        .animated-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .animated-bg span {
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            opacity: 0.18;
+            animation: moveBg 12s linear infinite alternate;
+        }
+        .animated-bg .circle1 {
+            width: 220px; height: 220px; background: #A020F0;
+            left: 5vw; top: 10vh; animation-delay: 0s;
+        }
+        .animated-bg .circle2 {
+            width: 140px; height: 140px; background: #d6b4fc;
+            right: 8vw; top: 60vh; animation-delay: 2s;
+        }
+        .animated-bg .circle3 {
+            width: 90px; height: 90px; background: #A020F0;
+            left: 40vw; top: 80vh; animation-delay: 4s;
+        }
+        @keyframes moveBg {
+            0% { transform: translateY(0) scale(1);}
+            100% { transform: translateY(-30px) scale(1.08);}
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background shapes -->
+    <div class="animated-bg">
+        <span class="circle1"></span>
+        <span class="circle2"></span>
+        <span class="circle3"></span>
+    </div>
+    <!-- Profile picture absolutely positioned at top right -->
+    <img src="image 2.png" alt="Profile Picture" class="profile-pic-topright">
+
+    <!-- Popup Overlay and Popup Content -->
+    <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(24,18,43,0.85); z-index:1000; animation: fadeIn 0.5s;">
+        <div id="popup-content" style="
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: linear-gradient(120deg, #18122B 60%, #A020F0 200%);
+            border-radius: 24px;
+            box-shadow: 0 8px 40px #a020f088, 0 2px 8px #a020f044;
+            padding: 48px 36px 36px 36px;
+            min-width: 320px;
+            max-width: 95vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            color: #fff;
+            animation: popupIn 0.5s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+        ">
+            <button onclick="closePopup()" style="
+                position:absolute; top:18px; right:24px;
+                background:none; border:none; color:#fff;
+                font-size:2em; cursor:pointer; font-weight:bold;
+                transition: color 0.2s;
+            " title="Close">&times;</button>
+            <div id="popup-inner-content"></div>
+        </div>
+    </div>
+    <header>
+        <div class="header-main">
+            <div class="header-info">
+                <div class="full-name" style="cursor:pointer;" onclick="showPopup('about')">Riya Verma</div>
+                <div class="about-me" style="cursor:pointer;" onclick="showPopup('about')">
+                    I am a final-year Computer Science student at <b>SRM University</b>, passionate about building innovative and user-centric web applications. My interests span full-stack development, artificial intelligence, and UI/UX design. I thrive in collaborative environments and am always eager to learn new technologies. My goal is to leverage technology to solve real-world problems and contribute to impactful projects.
+                </div>
+                <div class="contact-info" style="cursor:pointer;" onclick="showPopup('contact-info')">
+                    <div>
+                        <span style="font-weight:bold;">Email:</span>
+                        <span style="color:#A020F0; font-weight:bold;">riyaverma1925@gmail.com</span>
+                    </div>
+                    <div>
+                        <span style="font-weight:bold;">Phone:</span> <span>+91-9876543210</span>
+                    </div>
+                    <div>
+                        <span style="font-weight:bold;">LinkedIn:</span>
+                        <a href="https://linkedin.com/in/riyaverma" style="color:#A020F0; font-weight:bold;" target="_blank">linkedin.com/in/riyaverma</a>
+                    </div>
+                    <a href="https://instagram.com/your_riya_verma_1725" target="_blank" rel="noopener" class="social-link">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width:22px;vertical-align:middle;margin-right:6px;">
+                        @your_instagram_id
+                    </a>
+                </div>
+                <div class="header-sections">
+                    <div class="header-section" style="cursor:pointer;" onclick="showPopup('skills')">
+                        <h3>Skills</h3>
+                        <div>
+                            <div>HTML &amp; CSS</div>
+                            <div class="skill-bar"><div class="skill-level" style="width:95%;">Advanced</div></div>
+                            <div>JavaScript (ES6+)</div>
+                            <div class="skill-bar"><div class="skill-level" style="width:90%;">Beginner</div></div>
+                            <div>React.js</div>
+                            <div class="skill-bar"><div class="skill-level" style="width:85%;">Beginner</div></div>
+                            <div>Node.js</div>
+                            <div class="skill-bar"><div class="skill-level" style="width:80%;">Beginner</div></div>
+                            <div>Python</div>
+                            <div class="skill-bar"><div class="skill-level" style="width:80%;">Intermediate</div></div>
+                            <div>Git &amp; GitHub</div>
+                            <div class="skill-bar"><div class="skill-level" style="width:90%;">Beginner</div></div>
+                        </div>
+                    </div>
+                    <div class="header-section" style="cursor:pointer;" onclick="showPopup('education')">
+                        <h3>Education</h3>
+                        <ul>
+                            <li>
+                                <b>B.Tech in Computer Science</b><br>
+                                <span style="color:#A020F0;">SRM University, 2021-2025</span>
+                            </li>
+                            <li>
+                                <b>12th CBSE</b>, 2021<br>
+                                <span style="color:#A020F0;">Saraswathi Vidyalaya</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Projects Section -->
+                <div class="header-section" style="width:100%;margin-top:32px;cursor:pointer;" onclick="showPopup('projects')">
+                    <h3>Projects</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+                        <div class="project-card">
+                            <div class="project-title">Smart Attendance System</div>
+                            <div class="project-desc">
+                                As a beginner, I developed a simple facial recognition-based attendance system for classrooms. This project helped me learn Python basics, OpenCV for face detection, and how to connect a Python backend with a basic HTML/CSS frontend.<br>
+                                <span class="project-tech"><b>Technologies:</b> Python, OpenCV, Flask, HTML, CSS</span>
+                            </div>
+                            <a href="https://github.com/riyaverma/smart-attendance" target="_blank" class="project-link">View on GitHub</a>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title">Personal Portfolio Website</div>
+                            <div class="project-desc">
+                                Designed and developed this portfolio website to showcase my skills and projects as a beginner in web development. This project helped me understand HTML structure, CSS styling, and basic responsive design.<br>
+                                <span class="project-tech"><b>Technologies:</b> HTML, CSS, JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Experience Section -->
+                <div class="header-section" style="width:100%;margin-top:32px;cursor:pointer;" onclick="showPopup('experience')">
+                    <h3>Experience</h3>
+                    <div>
+                        <div class="project-title">Web Development Intern, TechSoft</div>
+                        <div class="project-desc">
+                            As a beginner intern, I contributed to building simple landing pages and dashboards for client projects. I learned to collaborate with designers, use Git for version control, and improve website performance.<br>
+                            <span class="project-tech"><b>Technologies:</b> HTML, CSS, JavaScript, Bootstrap</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <div class="project-title">Hackathon Participant</div>
+                        <div class="project-desc">
+                            Participated in my first university hackathon, where I worked with a team to build a basic real-time disaster alert web app. I focused on learning React basics and how to work in a team.<br>
+                            <span class="project-tech"><b>Technologies:</b> React, Node.js, Firebase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="mailto:riyaverma1925@gmail.com" method="POST" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2025 Riya Verma</p>
+    </footer>
+    <script>
+        // Popup content for each section
+        const popupContents = {
+            about: `
+                <h2 style="color:#A020F0;">About Me</h2>
+                <p style="font-size:1.1em;line-height:1.7;">
+                    I am a final-year Computer Science student at <b>SRM University</b>, passionate about building innovative and user-centric web applications. My interests span full-stack development, artificial intelligence, and UI/UX design. I thrive in collaborative environments and am always eager to learn new technologies. My goal is to leverage technology to solve real-world problems and contribute to impactful projects.
+                </p>
+            `,
+            "contact-info": `
+                <h2 style="color:#A020F0;">Contact Information</h2>
+                <ul style="font-size:1.1em;line-height:2;">
+                    <li><b>Email:</b> riyaverma1925@gmail.com</li>
+                    <li><b>Phone:</b> +91-9876543210</li>
+                    <li><b>LinkedIn:</b> <a href="https://linkedin.com/in/riyaverma" target="_blank" style="color:#A020F0;">linkedin.com/in/riyaverma</a></li>
+                </ul>
+            `,
+            skills: `
+                <h2 style="color:#A020F0;">Skills</h2>
+                <ul style="font-size:1.1em;line-height:2;">
+                    <li>HTML &amp; CSS - Advanced</li>
+                    <li>JavaScript (ES6+) - Beginner</li>
+                    <li>React.js - Beginner</li>
+                    <li>Node.js - Beginner</li>
+                    <li>Python - Intermediate</li>
+                    <li>Git &amp; GitHub - Beginner</li>
+                </ul>
+            `,
+            education: `
+                <h2 style="color:#A020F0;">Education</h2>
+                <ul style="font-size:1.1em;line-height:2;">
+                    <li><b>B.Tech in Computer Science</b><br>SRM University, 2021-2025</li>
+                    <li><b>12th CBSE</b>, 2021<br>Saraswathi Vidyalaya</li>
+                </ul>
+            `,
+            projects: `
+                <h2 style="color:#A020F0;">Projects</h2>
+                <div style="margin-bottom:18px;">
+                    <b>Smart Attendance System</b>
+                    <p style="margin:6px 0 0 0;">
+                        As a beginner, I developed a simple facial recognition-based attendance system for classrooms. This project helped me learn Python basics, OpenCV for face detection, and how to connect a Python backend with a basic HTML/CSS frontend.<br>
+                        <span style="color:#A020F0;"><b>Technologies:</b> Python, OpenCV, Flask, HTML, CSS</span><br>
+                        <a href="https://github.com/riyaverma/smart-attendance" target="_blank" style="color:#A020F0;text-decoration:underline;">View on GitHub</a>
+                    </p>
+                </div>
+                <div>
+                    <b>Personal Portfolio Website</b>
+                    <p style="margin:6px 0 0 0;">
+                        Designed and developed this portfolio website to showcase my skills and projects as a beginner in web development. This project helped me understand HTML structure, CSS styling, and basic responsive design.<br>
+                        <span style="color:#A020F0;"><b>Technologies:</b> HTML, CSS, JavaScript</span>
+                    </p>
+                </div>
+            `,
+            experience: `
+                <h2 style="color:#A020F0;">Experience</h2>
+                <div style="margin-bottom:18px;">
+                    <b>Web Development Intern, TechSoft</b>
+                    <p style="margin:6px 0 0 0;">
+                        As a beginner intern, I contributed to building simple landing pages and dashboards for client projects. I learned to collaborate with designers, use Git for version control, and improve website performance.<br>
+                        <span style="color:#A020F0;"><b>Technologies:</b> HTML, CSS, JavaScript, Bootstrap</span>
+                    </p>
+                </div>
+                <div>
+                    <b>Hackathon Participant</b>
+                    <p style="margin:6px 0 0 0;">
+                        Participated in my first university hackathon, where I worked with a team to build a basic real-time disaster alert web app. I focused on learning React basics and how to work in a team.<br>
+                        <span style="color:#A020F0;"><b>Technologies:</b> React, Node.js, Firebase</span>
+                    </p>
+                </div>
+            `
+        };
+
+        function showPopup(section) {
+            document.getElementById('popup-inner-content').innerHTML = popupContents[section] || '';
+            document.getElementById('popup-overlay').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('popup-content').style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePopup() {
+            document.getElementById('popup-content').style.transform = 'translate(-50%, -50%) scale(0.9)';
+            setTimeout(() => {
+                document.getElementById('popup-overlay').style.display = 'none';
+                document.body.style.overflow = '';
+            }, 200);
+        }
+
+        // Optional: Close popup on overlay click or ESC key
+        document.getElementById('popup-overlay').addEventListener('click', function(e) {
+            if (e.target === this) closePopup();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closePopup();
+        });
+    </script>
+    <style>
+        @keyframes popupIn {
+            from { opacity: 0; transform: translate(-50%, -60%) scale(0.7);}
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1);}
+        }
+        #popup-overlay {
+            animation: fadeIn 0.5s;
+        }
+        #popup-content {
+            animation: popupIn 0.5s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+        }
+        #popup-content::-webkit-scrollbar {
+            width: 8px;
+            background: #18122B;
+        }
+        #popup-content::-webkit-scrollbar-thumb {
+            background: #A020F0;
+            border-radius: 8px;
+        }
+        #popup-content h2 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #A020F0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        #popup-content ul, #popup-content p, #popup-content div {
+            color: #fff;
+        }
+        #popup-content a {
+            color: #A020F0;
+            text-decoration: underline;
+        }
+        #popup-content a:hover {
+            color: #d6b4fc;
+        }
+        #popup-content button[onclick] {
+            opacity: 0.7;
+        }
+        #popup-content button[onclick]:hover {
+            opacity: 1;
+            color: #A020F0;
+        }
+    </style>
+</body>
+</html>
